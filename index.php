@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="item" data-status="true">
+            <div class="item__name">Кеды</div>
+            <div class="item__status green">В наличии</div>
+            <div class="item__description">111Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum ipsa molestiae corrupti ducimus, quam repudiandae dicta maiores voluptatibus officiis dolores exercitationem vero mollitia molestias nemo quasi unde, doloribus tempore vitae.</div>
+            <button class="btn _modal-open" data-modal-open="modal-1">Купить</button>
+        </div>
+
+        <div class="item" data-status="true">
+            <div class="item__name">Валенки</div>
+            <div class="item__status green">В наличии</div>
+            <div class="item__description">222Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati ipsa doloribus natus nisi exercitationem molestiae ea expedita ratione dolorem alias amet voluptatem veniam vel, repellendus voluptatum nulla nostrum soluta ad?</div>
+            <button class="btn _modal-open" data-modal-open="modal-1">Купить</button>
+        </div>
+
+        <div class="item" data-status="true">
+            <div class="item__name">Сапоги</div>
+            <div class="item__status green">В наличии</div>
+            <div class="item__description">333Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid expedita quasi ut alias magni commodi tempore atque. Sit vitae modi error voluptates! Voluptatum repellendus pariatur in ullam quo nisi quos?</div>
+            <button class="btn _modal-open" data-modal-open="modal-1">Купить</button>
+        </div>
+
+        <div class="item" data-status="false">
+            <div class="item__name">Баклажан</div>
+            <div class="item__status red">Товар закончился</div>
+            <div class="item__description">444Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, modi, alias iure iusto autem beatae asperiores eos nesciunt quos minima iste, commodi porro quas? Velit optio quas facere dignissimos recusandae?</div>
+            <button class="btn _modal-open" data-modal-open="modal-1">Купить</button>
+        </div>
+    </div>
+
+    <div class="_modal" data-modal="modal-1">
+        <div class="modal-bg">
+            <div class="modal-body">
+                <div class="modal-close">Х</div>
+                <div class="modal-title">Добавлено в корзину!</div>
+                <div class="modal-content modal-callback">
+                    <div class="modal-callback__text text">
+                        <div class="item__name">Название</div>
+                        <div class="item__description">Описание</div>
+                    </div>
+                </div>
+                <div><input class="btn btn__order" type="button" value="Продолжить покупки"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="_modal" data-modal="modal-2">
+        <div class="modal-bg">
+            <div class="modal-body">
+                <div class="modal-close">Х</div>
+                <div class="modal-title">Товара нет в наличии!</div>
+                    <div class="modal-content modal-callback">
+                        <div class="modal-callback__text center green">
+                            Оставьте заявку для заказа и мы вам перезвоним!
+                        </div>
+                        <div id="error" class="modal-callback__text center red"></div>
+                        <div class="modal-callback__form">
+                            <form action="#" id="form" class="form">
+                                <div class="form__input-parent">
+                                    <input type="text" class="form__input form__input-name _required" name="name" placeholder="Имя">
+                                </div>
+                                <div class="form__input-parent">
+                                    <input type="text" class="form__input form__input-name _required" name="phone" placeholder="Телефон">
+                                </div>
+                                <button type="submit" class="form__button">Оставить заявку</button>
+                            </form>
+                        </div>
+                    </div>
+                <div>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
