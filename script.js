@@ -18,7 +18,7 @@ btns.forEach(btn => {//если товара в наличии нет
     let datastatus = btn.parentNode.getAttribute('data-status');
     
     if (datastatus == 'false') {
-        btn.innerHTML = 'Заказать';
+        btn.innerHTML = 'Заказать';//то меняем надпись на кнопке
         btn.setAttribute("data-modal-open", "modal-2");
     }
 })
@@ -29,14 +29,14 @@ btns.forEach(btn => {
         let data = e.target.dataset.modalOpen;
         
         modals.forEach(modal => {
-            if (data == 'modal-1') {
+            if (data == 'modal-1') {//если товар в наличии, то заполняем нужную модалку данными из карточки
                 let itemName = btn.parentNode.querySelector('.item__name').innerHTML;
                 let itemDescription = btn.parentNode.querySelector('.item__description').innerHTML;
                 modal.querySelector('.item__name').innerHTML = itemName;
                 modal.querySelector('.item__description').innerHTML = itemDescription;
             }
 
-            if (modal.dataset.modal == data) {
+            if (modal.dataset.modal == data) {//для показа модалки, соответствующей кнопке
                 openModal(modal);
             }
         })
@@ -49,7 +49,7 @@ modals.forEach(modal => {
 
 const form = document.querySelector('#form');
 
-form.addEventListener('submit', formSend)
+form.addEventListener('submit', formSend)//отправка формы
 
 async function formSend(e) {
     e.preventDefault();
@@ -57,15 +57,14 @@ async function formSend(e) {
     let errors = validator(form);
     let message = document.querySelector('#error');
     message.innerHTML = '';
-    if (errors === 0) {
-        console.log(111);
+
+    if (errors === 0) {//отправка, если ошибок нет, либо вывод предупреждения
         let formData = new FormData(form);
         let response = await fetch('send.php', {
             method: POST,
             body: formData
         });
         if (response.ok) {
-            console.log(222);
             let result = await response.json();
             alert(result.message);
             form.reset();
@@ -74,8 +73,7 @@ async function formSend(e) {
         message.innerHTML = 'Заполните все поля!';
     }
 
-    function validator(form) {
-
+    function validator(form) {//проверка на заполненность полей
         let errors = 0;
         let formRequired = document.querySelectorAll('._required');
 
@@ -88,13 +86,13 @@ async function formSend(e) {
                 errors++;
             }
         }
-        return errors;
+        return errors;//возврат количества ошибок
 
     }
-    function addError(input) {
+    function addError(input) {//для указания обязательных полей формы
         input.parentElement.classList.add('_error');
     }
-    function removeError(input) {
+    function removeError(input) {//убрать красные рамки с полей
         input.parentElement.classList.remove('_error');
     }
 }
